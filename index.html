@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAOL TUTORIAL - Student Registration</title>
+    <style>
+        body {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), 
+                              url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: backgroundZoom 15s ease-in-out infinite;
+        }
+        .container {
+            max-width: 500px;
+            width: 100%;
+            padding: 20px;
+            margin: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+        h1 {
+            color: #000000; /* Changed to black */
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        h2 {
+            color: #15803d;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        p.subtitle {
+            color: #1e40af;
+            font-size: 1.2rem;
+        }
+        .form-container {
+            background: #facc15;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.8s ease-out;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        input, select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 2px solid;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, transform 0.2s ease;
+        }
+        input#name { border-color: #c084fc; }
+        input#name:focus { border-color: #9333ea; transform: scale(1.02); outline: none; }
+        select#grade { border-color: #60a5fa; }
+        select#grade:focus { border-color: #2563eb; transform: scale(1.02); outline: none; }
+        select#course { border-color: #4ade80; }
+        select#course:focus { border-color: #16a34a; transform: scale(1.02); outline: none; }
+        input#email { border-color: #facc15; }
+        input#email:focus { border-color: #ca8a04; transform: scale(1.02); outline: none; }
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background: #6b21a8;
+            transform: scale(1.05);
+        }
+        #message {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 1.1rem;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+        .success { color: #16a34a; }
+        .error { color: #dc2626; }
+        footer {
+            margin-top: 2rem;
+            color: #4b5563;
+            text-align: center;
+        }
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes backgroundZoom {
+            0% { background-size: 100%; }
+            50% { background-size: 120%; }
+            100% { background-size: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Naola TUTORIAL</h1>
+            <p class="subtitle">Empowering Students in Grades 9-12</p>
+        </header>
+        <main class="form-container">
+            <h2>Student Registration</h2>
+            <form id="registrationForm" action="https://formspree.io/f/xqazkoda" method="POST">
+                <div class="form-group">
+                    <label for="name" style="color: #9333ea;">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="grade" style="color: #2563eb;">Grade</label>
+                    <select id="grade" name="grade">
+                        <option value="">Select Grade</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="course" style="color: #16a34a;">Course</label>
+                    <select id="course" name="course">
+                        <option value="">Select Course</option>
+                        <option value="Math">Math</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="CSS">CSS</option>
+                        <option value="C++">C++</option>
+                        <option value="Python">Python</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email" style="color: #ca8a04;">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                </div>
+                <input type="hidden" id="timestamp" name="timestamp">
+                <input type="hidden" name="_subject" value="New Student Registration - Naola TUTORIAL">
+                <input type="hidden" name="_to" value="naolmekonen32@gmail.com">
+                <button type="submit">Register</button>
+            </form>
+            <p id="message"></p>
+        </main>
+        <footer>
+            <p>© 2025 Naola TUTORIAL. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const grade = document.getElementById('grade').value;
+            const course = document.getElementById('course').value;
+            const email = document.getElementById('email').value.trim();
+            const timestamp = new Date().toLocaleString('en-US', { timeZone: 'Africa/Addis_Ababa' });
+            const messageEl = document.getElementById('message');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!name || !course || !email || !emailRegex.test(email)) {
+                messageEl.textContent = 'Please try again';
+                messageEl.className = 'error';
+                return;
+            }
+
+            // Set timestamp value before submission
+            document.getElementById('timestamp').value = timestamp;
+
+            // Display success message
+            messageEl.textContent = 'Successfully your registration';
+            messageEl.className = 'success';
+
+            // Submit the form to Formspree
+            this.submit();
+
+            // Reset form after submission
+            this.reset();
+        });
+    </script>
+</body>
+</html>
